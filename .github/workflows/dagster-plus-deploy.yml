@@ -75,6 +75,11 @@ jobs:
           done
         shell: bash
 
+      - name: Add venv to PATH
+        if: steps.prerun.outputs.result != 'skip'
+        run: echo "$GITHUB_WORKSPACE/.venv/bin" >> $GITHUB_PATH
+        shell: bash
+
       # Refresh state for any StateBackedComponents in the project
       - name: Refresh defs state
         if: steps.prerun.outputs.result != 'skip'
