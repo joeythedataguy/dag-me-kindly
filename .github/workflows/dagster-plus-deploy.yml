@@ -42,6 +42,12 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      # Temporary debug step - remove after fixing auth
+      - name: Debug token
+        run: |
+          echo "Token length: ${#DAGSTER_CLOUD_API_TOKEN}"
+          echo "Token prefix: ${DAGSTER_CLOUD_API_TOKEN:0:5}"
+
       # Detect if this is branch deployment and initialize the build session
       - name: Initialize build session
         id: ci-init
