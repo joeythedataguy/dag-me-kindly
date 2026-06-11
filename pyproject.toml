@@ -21,6 +21,9 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 force-include = { "pyproject.toml" = "pyproject.toml" }
+artifacts = [
+    "src/dag_me_kindly/defs/.local_defs_state/",
+]
 
 [tool.dg]
 directory_type = "project"
