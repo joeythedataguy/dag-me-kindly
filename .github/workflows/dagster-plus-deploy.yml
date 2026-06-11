@@ -15,7 +15,7 @@ env:
   # The organization name in Dagster Cloud
   DAGSTER_CLOUD_ORGANIZATION: "kachnalytics"
   # The Dagster Cloud URL
-  DAGSTER_CLOUD_URL: "https://eu.dagster.cloud"
+  DAGSTER_CLOUD_URL: "https://kachnalytics.eu.dagster.cloud"
   # The API token from https://dagster.cloud/ should be stored in Secrets
   DAGSTER_CLOUD_API_TOKEN: ${{ secrets.DAGSTER_CLOUD_API_TOKEN }}
   # Path to the root folder containing the dagster project
@@ -41,12 +41,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
-
-      # Temporary debug step - remove after fixing auth
-      - name: Debug token
-        run: |
-          echo "Token length: ${#DAGSTER_CLOUD_API_TOKEN}"
-          echo "Token prefix: ${DAGSTER_CLOUD_API_TOKEN:0:5}"
 
       # Detect if this is branch deployment and initialize the build session
       - name: Initialize build session
