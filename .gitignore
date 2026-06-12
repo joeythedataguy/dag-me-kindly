@@ -203,3 +203,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 .DS_Store
+
+# dlt — keep config.toml and .workspace, ignore credentials and local state
+.dlt/secrets.toml
+.dlt/data/
+.dlt/state/

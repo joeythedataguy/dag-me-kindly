@@ -1,6 +1,7 @@
 {
   "enabledPlugins": {
     "dagster-expert@dagster": true,
-    "dignified-python@dagster": true
+    "dignified-python@dagster": true,
+    "bootstrap@dlthub-ai-workbench": true
   }
 }
