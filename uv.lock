@@ -648,6 +648,7 @@ dependencies = [
     { name = "dagster" },
     { name = "dagster-cloud" },
     { name = "dagster-dbt" },
+    { name = "dagster-dlt" },
     { name = "dbt-duckdb" },
     { name = "dlt", extra = ["duckdb", "filesystem"] },
     { name = "pandas", version = "2.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -665,6 +666,7 @@ requires-dist = [
     { name = "dagster", specifier = "==1.13.8" },
     { name = "dagster-cloud", specifier = ">=1.13.8" },
     { name = "dagster-dbt", specifier = ">=0.29.8" },
+    { name = "dagster-dlt", specifier = ">=0.29.8" },
     { name = "dbt-duckdb", specifier = ">=1.10.1" },
     { name = "dlt", extras = ["duckdb", "filesystem"], specifier = ">=1.27.2" },
     { name = "pandas", specifier = ">=2.3.3" },
@@ -823,6 +825,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/12/bb/f7d98fb1e7aabf616e60747519249f402f1958611f9d8090ce1c7005203c/dagster_dg_core-1.13.8.tar.gz", hash = "sha256:243a2da0643912e5f40356f2d6bd40f3c6d201e5553316439a7c5809e04e5ca3", size = 240935, upload_time = "2026-06-04T17:28:09.841Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e6/5b/61ec2df4dbf1d74a3eb44ff738b89b86693ead76b7f21fc04a1e1a80077e/dagster_dg_core-1.13.8-py3-none-any.whl", hash = "sha256:be0143c47d3f89cc0528a9749104e8497a8c432dbfe116876479e0bc672c2692", size = 47472, upload_time = "2026-06-04T17:28:08.656Z" },
+]
+
+[[package]]
+name = "dagster-dlt"
+version = "0.29.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "dagster" },
+    { name = "dlt" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4d/cb/9d540ece51653a20b4ea8cb7412fddba127ec3c04818e2ce852707986118/dagster_dlt-0.29.8.tar.gz", hash = "sha256:0e89d1107303eb62e7015f18a3b818522ab5e02c2f14484c17c044238df25a8f", size = 232163, upload_time = "2026-06-04T17:26:25.966Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/45/70/ef16cc3a0f47e9c81437b9329b4bdfad188d85e4ef191b37052bc74dbdd7/dagster_dlt-0.29.8-py3-none-any.whl", hash = "sha256:e4660e7ad6ee1a69c9416f5d3c29368193c0e5b0e8354ce3bdddddf5b3fb07d0", size = 20927, upload_time = "2026-06-04T17:26:24.918Z" },
 ]
 
 [[package]]
