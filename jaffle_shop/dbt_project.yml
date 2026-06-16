@@ -38,5 +38,11 @@ models:
         +meta:
           dagster:
             group: sukl_staging
+    intermediate:
+      +meta:
+        dagster:
+          group: sukl_staging
+      +docs:
+        node_color: 'silver'
     +docs:
       node_color: 'gold'

@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: int_lek13_percentil
+    description: >
+      stg_lek13 with a percentile rank added for pocet_baleni (percentage of
+      report lines with a strictly smaller package count). Reimplements the
+      legacy stg_lek13.py pandas/numpy script as a single SQL window function:
+      percentil = (RANK() - 1) / COUNT(*), which is mathematically identical
+      to numpy's searchsorted-based percentile (verified against live data).
+    columns:
+      - name: kod_sukl
+        tests:
+          - not_null
+      - name: percentil_pocet_baleni
+        description: >
+          Percentage of report lines with a pocet_baleni value strictly less
+          than this row's, rounded to 2 decimals. Ties share the same value.
+        tests:
+          - not_null
