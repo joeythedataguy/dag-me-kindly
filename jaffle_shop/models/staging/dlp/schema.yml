@@ -1,0 +1,348 @@
+version: 2
+
+sources:
+  - name: dlp
+    description: >
+      SUKL DLP (Databaze lecivych pripravku) reference/dimension tables, loaded by
+      the dlt pipeline in defs/ingest_dim_dlp.py. Refreshed from the latest ZIP only;
+      write_disposition is append, so historical zip vintages accumulate.
+    schema: raw_dim_dlp
+    tables:
+      - name: dim_dlp_atc
+        description: ATC (Anatomical Therapeutic Chemical) classification groups.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_atc"]
+      - name: dim_dlp_cesty
+        description: Routes of administration.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_cesty"]
+      - name: dim_dlp_doping
+        description: Doping classification codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_doping"]
+      - name: dim_dlp_dopinglp
+        description: Doping classification per medicinal product.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_dopinglp"]
+      - name: dim_dlp_formy
+        description: Pharmaceutical dosage forms.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_formy"]
+      - name: dim_dlp_indikacniskupiny
+        description: Indication groups.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_indikacniskupiny"]
+      - name: dim_dlp_jednotky
+        description: Units of measure.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_jednotky"]
+      - name: dim_dlp_latky
+        description: Substances (active and other).
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_latky"]
+      - name: dim_dlp_lecivelatky
+        description: Active pharmaceutical substances.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_lecivelatky"]
+      - name: dim_dlp_lecivepripravky
+        description: Medicinal products (the core product dimension), one row per SUKL product code.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_lecivepripravky"]
+      - name: dim_dlp_narvla
+        description: Substances with anabolic/hormonal effect per government regulation 454/2009.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_narvla"]
+      - name: dim_dlp_nazvydokumentu
+        description: Filenames of regulatory documents (PIL, SPC, packaging text) per product.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_nazvydokumentu"]
+      - name: dim_dlp_obaly
+        description: Primary packaging types.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_obaly"]
+      - name: dim_dlp_organizace
+        description: Organizations (manufacturers and marketing authorization holders).
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_organizace"]
+      - name: dim_dlp_platnost
+        description: Validity period of the current DLP dataset snapshot.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_platnost"]
+      - name: dim_dlp_pravnizakladreg
+        description: Legal basis codes for registration.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_pravnizakladreg"]
+      - name: dim_dlp_regproc
+        description: Registration procedure codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_regproc"]
+      - name: dim_dlp_slozeni
+        description: Product composition lines (substance quantities per product).
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_slozeni"]
+      - name: dim_dlp_slozenipriznak
+        description: Composition flag codes (e.g. active vs excipient).
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_slozenipriznak"]
+      - name: dim_dlp_soli
+        description: Salt-to-base-substance mapping.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_soli"]
+      - name: dim_dlp_splp
+        description: Specific treatment program exceptions per product.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_splp"]
+      - name: dim_dlp_stavyreg
+        description: Registration status codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_stavyreg"]
+      - name: dim_dlp_synonyma
+        description: Substance name synonyms.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_synonyma"]
+      - name: dim_dlp_typlp
+        description: Medicinal product type codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_typlp"]
+      - name: dim_dlp_vpois
+        description: Holder information-service contact details per product.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_vpois"]
+      - name: dim_dlp_vydej
+        description: Dispensing type codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_vydej"]
+      - name: dim_dlp_zavislost
+        description: Dependency (controlled substance) classification codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_zavislost"]
+      - name: dim_dlp_zdroje
+        description: Data source codes.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_zdroje"]
+      - name: dim_dlp_zeme
+        description: Countries.
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_zeme"]
+      - name: dim_dlp_zruseneregistrace
+        description: Cancelled/expired product registrations (historical record, no stable product key).
+        meta:
+          dagster:
+            asset_key: ["dlt_dlp_source_dim_dlp_zruseneregistrace"]
+
+models:
+  - name: base_dlp_atc
+    description: ATC classification groups, typed and renamed from dim_dlp_atc.
+    columns:
+      - name: atc
+        tests: [unique, not_null]
+  - name: base_dlp_cesty
+    description: Routes of administration, typed and renamed from dim_dlp_cesty.
+    columns:
+      - name: cesta
+        tests: [unique, not_null]
+  - name: base_dlp_doping
+    description: Doping classification codes, typed and renamed from dim_dlp_doping.
+    columns:
+      - name: doping
+        tests: [unique, not_null]
+  - name: base_dlp_dopinglp
+    description: Doping classification per product, typed and renamed from dim_dlp_dopinglp.
+    columns:
+      - name: kod_sukl
+        tests: [not_null]
+  - name: base_dlp_formy
+    description: Pharmaceutical dosage forms, typed and renamed from dim_dlp_formy.
+    columns:
+      - name: forma
+        tests: [unique, not_null]
+  - name: base_dlp_indikacniskupiny
+    description: Indication groups, typed and renamed from dim_dlp_indikacniskupiny.
+    columns:
+      - name: indsk
+        tests: [unique, not_null]
+  - name: base_dlp_jednotky
+    description: Units of measure, typed and renamed from dim_dlp_jednotky.
+    columns:
+      - name: un
+        tests: [unique, not_null]
+  - name: base_dlp_latky
+    description: Substances, typed and renamed from dim_dlp_latky.
+    columns:
+      - name: kod_latky
+        tests: [unique, not_null]
+  - name: base_dlp_lecivelatky
+    description: Active pharmaceutical substances, typed and renamed from dim_dlp_lecivelatky.
+    columns:
+      - name: kod_latky
+        tests: [unique, not_null]
+  - name: base_dlp_lecivepripravky
+    description: Medicinal products, typed and renamed from dim_dlp_lecivepripravky.
+    columns:
+      - name: kod_sukl
+        tests: [unique, not_null]
+  - name: base_dlp_narvla
+    description: Anabolic/hormonal substance codes, typed and renamed from dim_dlp_narvla.
+    columns:
+      - name: narvla
+        tests: [unique, not_null]
+  - name: base_dlp_nazvydokumentu
+    description: Regulatory document filenames per product, typed and renamed from dim_dlp_nazvydokumentu.
+    columns:
+      - name: kod_sukl
+        tests: [not_null]
+  - name: base_dlp_obaly
+    description: Primary packaging types, typed and renamed from dim_dlp_obaly.
+    columns:
+      - name: obal
+        tests: [unique, not_null]
+  - name: base_dlp_organizace
+    description: Organizations, typed and renamed from dim_dlp_organizace.
+    columns:
+      - name: zkr_org
+        tests: [not_null]
+  - name: base_dlp_platnost
+    description: Validity period of the current DLP snapshot, typed and renamed from dim_dlp_platnost.
+  - name: base_dlp_pravnizakladreg
+    description: Legal basis codes for registration, typed and renamed from dim_dlp_pravnizakladreg.
+    columns:
+      - name: kod
+        tests: [unique, not_null]
+  - name: base_dlp_regproc
+    description: Registration procedure codes, typed and renamed from dim_dlp_regproc.
+    columns:
+      - name: reg_proc
+        tests: [unique, not_null]
+  - name: base_dlp_slozeni
+    description: Product composition lines, typed and renamed from dim_dlp_slozeni.
+    columns:
+      - name: kod_sukl
+        tests: [not_null]
+  - name: base_dlp_slozenipriznak
+    description: Composition flag codes, typed and renamed from dim_dlp_slozenipriznak.
+    columns:
+      - name: s
+        tests: [unique, not_null]
+  - name: base_dlp_soli
+    description: Salt-to-base-substance mapping, typed and renamed from dim_dlp_soli.
+  - name: base_dlp_splp
+    description: Specific treatment program exceptions, typed and renamed from dim_dlp_splp.
+    columns:
+      - name: kod_sukl
+        tests: [not_null]
+  - name: base_dlp_stavyreg
+    description: Registration status codes, typed and renamed from dim_dlp_stavyreg.
+    columns:
+      - name: reg
+        tests: [unique, not_null]
+  - name: base_dlp_synonyma
+    description: Substance name synonyms, typed and renamed from dim_dlp_synonyma.
+    columns:
+      - name: kod_latky
+        tests: [not_null]
+  - name: base_dlp_typlp
+    description: Medicinal product type codes, typed and renamed from dim_dlp_typlp.
+    columns:
+      - name: typ_lp
+        tests: [unique, not_null]
+  - name: base_dlp_vpois
+    description: Holder information-service contact details, typed and renamed from dim_dlp_vpois.
+    columns:
+      - name: kod_sukl
+        tests: [unique, not_null]
+  - name: base_dlp_vydej
+    description: Dispensing type codes, typed and renamed from dim_dlp_vydej.
+    columns:
+      - name: vydej
+        tests: [unique, not_null]
+  - name: base_dlp_zavislost
+    description: Dependency classification codes, typed and renamed from dim_dlp_zavislost.
+    columns:
+      - name: zav
+        tests: [unique, not_null]
+  - name: base_dlp_zdroje
+    description: Data source codes, typed and renamed from dim_dlp_zdroje.
+    columns:
+      - name: zdroj
+        tests: [unique, not_null]
+  - name: base_dlp_zeme
+    description: Countries, typed and renamed from dim_dlp_zeme.
+    columns:
+      - name: zem
+        tests: [unique, not_null]
+  - name: base_dlp_zruseneregistrace
+    description: Cancelled/expired product registrations, typed and renamed from dim_dlp_zruseneregistrace.
+
+  - name: stg_dlp_lecivepripravky
+    description: >
+      Medicinal products denormalized with human-readable labels for route, form,
+      packaging, ATC group, product type, dispensing type, registration status,
+      dependency class, doping class, NARVLA class, legal basis, indication group,
+      registration procedure, and both the registering and current holder's country
+      and organization name. All FK joins verified against live data with at most
+      5 orphan rows out of 69147 (pravni_zaklad_registrace); most are exact matches.
+    columns:
+      - name: kod_sukl
+        tests: [unique, not_null]
+  - name: stg_dlp_slozeni
+    description: >
+      Product composition lines denormalized with substance name, unit name, and
+      composition-flag meaning. amnt/amnt_od stay as text since the source mixes
+      numeric quantities with the literal "PL" sentinel for excipients.
+    columns:
+      - name: kod_sukl
+        tests: [not_null]
+  - name: stg_dlp_organizace
+    description: Organizations denormalized with country name.
+    columns:
+      - name: zkr_org
+        tests: [not_null]
+  - name: stg_dlp_synonyma
+    description: >
+      Substance name synonyms denormalized with the canonical substance name.
+      zdroj is left as a raw code (not joined to base_dlp_zdroje) because ~17%
+      of values have no match in that lookup table - it covers a different,
+      coarser set of source codes.
+    columns:
+      - name: kod_latky
+        tests: [not_null]
+  - name: stg_dlp_soli
+    description: Salt-to-base-substance mapping denormalized with both substances' names.
+  - name: stg_dlp_dopinglp
+    description: Doping classification per product denormalized with the doping class name.
+    columns:
+      - name: kod_sukl
+        tests: [not_null]
+  - name: stg_dlp_zruseneregistrace
+    description: >
+      Cancelled/expired registrations denormalized with country, legal basis,
+      registration status, and holder organization names.

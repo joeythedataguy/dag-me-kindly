@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: lek13
+    description: >
+      SUKL LEK-13 monthly reports of medicinal product dispensing, loaded by the
+      dlt pipeline in defs/ingest_lek13.py.
+    schema: raw_lek13
+    tables:
+      - name: src_lek13
+        description: One row per reported product/period/dispensing-type combination.
+        meta:
+          dagster:
+            asset_key: ["dlt_sukl_source_src_lek13"]
+
+models:
+  - name: base_lek13
+    description: Cleaned LEK-13 dispensing report lines with typed prices and period.
+    columns:
+      - name: kod_sukl
+        description: SUKL product code (foreign key to dlp_lecivepripravky.kod_sukl).
+        tests:
+          - not_null
+      - name: obdobi
+        description: First day of the reporting month.
+        tests:
+          - not_null
+      - name: is_hrazeno
+        description: Whether the product is reimbursed from public health insurance.
+
+  - name: stg_lek13
+    description: >
+      Business-ready LEK-13 dispensing report lines. Only source table in this
+      source, so no joins are performed - this is base_lek13 with the raw
+      source_file lineage column dropped.
+    columns:
+      - name: kod_sukl
+        description: SUKL product code (foreign key to dlp_lecivepripravky.kod_sukl).
+        tests:
+          - not_null
+      - name: obdobi
+        description: First day of the reporting month.
+        tests:
+          - not_null
