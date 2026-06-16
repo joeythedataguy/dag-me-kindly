@@ -2,6 +2,7 @@
   "enabledPlugins": {
     "dagster-expert@dagster": true,
     "dignified-python@dagster": true,
-    "bootstrap@dlthub-ai-workbench": true
+    "bootstrap@dlthub-ai-workbench": true,
+    "dbt@dbt-agent-marketplace": true
   }
 }
